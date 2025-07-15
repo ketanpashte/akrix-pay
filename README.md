@@ -1,3 +1,4 @@
+
 # Akrix.ai Receipt Generator
 
 A professional, modern, and interactive receipt generation web application built for Akrix.ai startup.
@@ -173,3 +174,4 @@ This project is licensed under the MIT License.
 ## 🆘 Support
 
 For support, email support@akrix.ai or create an issue in the repository.
+
