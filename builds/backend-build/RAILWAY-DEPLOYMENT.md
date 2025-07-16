@@ -1,13 +1,14 @@
-# 🚂 Railway Deployment Guide - Fixed for Crypto Error
+# 🚂 Railway Deployment Guide - Fixed for Node.js 20 Compatibility
 
-## ✅ **Issue Fixed**
+## ✅ **Issues Fixed**
 
-The `crypto is not defined` error has been resolved with the following fixes:
+Both the `crypto is not defined` error and Node.js version compatibility have been resolved:
 
-1. **Node.js Version**: Specified Node.js 18+ in package.json
+1. **Node.js Version**: Updated to Node.js 20+ for full compatibility
 2. **Crypto Polyfill**: Added webcrypto polyfill in main.ts
-3. **Railway Config**: Added nixpacks.toml for proper Node.js version
-4. **Dependencies**: Updated with legacy peer deps support
+3. **Railway Config**: Updated nixpacks.toml for Node.js 20
+4. **Dependencies**: Compatible with Node.js 20 requirements
+5. **Legacy Peer Deps**: Added for dependency resolution
 
 ## 🚀 **Railway Deployment Steps**
 
@@ -71,10 +72,18 @@ if (!global.crypto) {
 ### **3. Railway Configuration**
 ```toml
 [phases.setup]
-nixPkgs = ['nodejs-18_x', 'npm-9_x']
+nixPkgs = ['nodejs_20', 'npm-10_x']
+
+[phases.install]
+cmds = ['npm ci --production --legacy-peer-deps']
 
 [start]
 cmd = 'npm run start:prod'
+```
+
+### **4. Node.js Version File**
+```
+20.11.0
 ```
 
 ## 🧪 **Test Your Deployment**
